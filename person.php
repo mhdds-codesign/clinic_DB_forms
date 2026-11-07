@@ -1,7 +1,7 @@
 <?php
     $servername = "localhost";
     $username = "root";
-    $password = "15483"; // رمزعبور دیتابیس شما
+    $password = ""; // رمزعبور دیتابیس شما
     $dbname = "health_check";
   
     $conn = new mysqli($servername, $username, $password, $dbname);
