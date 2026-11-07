@@ -1,0 +1,365 @@
+/* ============================================================
+   استایل‌های مدرن و چشم‌نواز سامانه خدمات درمانی و سلامت
+   طراحی اختصاصی مطابق طرح گرافیکی: بنفش سلطنتی، سبز نعنایی، اشکال ارگانیک
+   ============================================================ */
+
+:root {
+  --primary-purple: #5A3DE0;
+  --primary-dark: #382494;
+  --primary-light: #7E63F8;
+  --primary-soft: #F1EDFF;
+  
+  --accent-mint: #00E5A3;
+  --accent-mint-dark: #00B37E;
+  --mint-gradient: linear-gradient(135deg, #05DFD7 0%, #00E5A3 100%);
+  --mint-text: #053b31;
+  
+  --danger-rose: #FF536A;
+  --danger-gradient: linear-gradient(135deg, #FF6B8B 0%, #FF536A 100%);
+  
+  --bg-lavender: #F4F1FE;
+  --body-bg: #EAE5FC;
+  --card-bg: #FFFFFF;
+  --input-bg: #F8F7FE;
+  
+  --text-main: #2D1F6B;
+  --text-muted: #8C7BBD;
+  --border-subtle: #E4DCFA;
+  --border-focus: #5A3DE0;
+  
+  --shadow-card: 0 20px 50px rgba(90, 61, 224, 0.12), 0 2px 8px rgba(0, 0, 0, 0.03);
+  --shadow-btn-mint: 0 10px 24px rgba(0, 229, 163, 0.35);
+  --shadow-btn-purple: 0 10px 22px rgba(90, 61, 224, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Vazirmatn', 'Poppins', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--body-bg);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(90, 61, 224, 0.14) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(90, 61, 224, 0.18) 0%, transparent 45%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 16px;
+  direction: rtl;
+  color: var(--text-main);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* لکه‌های دکوراتیو شناور پس‌زمینه */
+.bg-blob-circle, .purple-blob {
+  position: fixed;
+  border-radius: 50%;
+  background: var(--primary-purple);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.blob-c1 {
+  width: 240px;
+  height: 240px;
+  left: -80px;
+  top: 12%;
+  opacity: 0.85;
+}
+
+.blob-c2 {
+  width: 270px;
+  height: 270px;
+  right: -90px;
+  bottom: 8%;
+  opacity: 0.9;
+}
+
+/* نوار عنوان و بازگشت بالای فرم‌ها */
+.form-top-bar {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.nav-btn-back {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(90, 61, 224, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-purple);
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(90, 61, 224, 0.08);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.nav-btn-back:hover {
+  background: var(--primary-purple);
+  color: #ffffff;
+  transform: scale(1.06);
+}
+
+.form-header-title {
+  text-align: center;
+}
+
+.form-header-title h1 {
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.form-header-title p {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 3px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* کارت فرم اصلی */
+.form-container, .form-card {
+  background-color: var(--card-bg);
+  border-radius: 32px;
+  padding: 30px 24px;
+  box-shadow: var(--shadow-card);
+  max-width: 480px;
+  width: 100%;
+  border: 1px solid rgba(90, 61, 224, 0.08);
+  position: relative;
+  z-index: 2;
+  animation: formFade 0.4s ease-out;
+}
+
+@keyframes formFade {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-container.hidden, .form-card.hidden {
+  display: none !important;
+}
+
+.form-container h2, .form-card h2 {
+  text-align: center;
+  color: var(--primary-dark); 
+  margin-bottom: 22px;
+  font-size: 19px;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 12px;
+  border-bottom: 1.5px dashed var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.form-container h2:before, .form-card h2:before {
+  display: none;
+}
+
+/* فیلدها و برچسب‌ها */
+.form-container label, .form-card label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--primary-dark); 
+  margin-top: 14px;
+  margin-bottom: 6px;
+}
+
+.form-container input,
+.form-container select,
+.form-card input,
+.form-card select {
+  width: 100%;
+  padding: 12px 14px;
+  margin-top: 2px;
+  margin-bottom: 14px;
+  border: 1.5px solid var(--border-subtle); 
+  border-radius: 16px; 
+  box-sizing: border-box;
+  background-color: var(--input-bg); 
+  color: var(--text-main);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: right; 
+  transition: all 0.25s ease;
+  outline: none;
+}
+
+.form-container input:focus,
+.form-container select:focus,
+.form-card input:focus,
+.form-card select:focus {
+  border: 1.5px solid var(--border-focus); 
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(90, 61, 224, 0.12);
+  outline: none; 
+}
+
+.form-container input[readonly],
+.form-container select[readonly] {
+  background: #F1EFFB;
+  color: #7A6EA0;
+  cursor: not-allowed;
+}
+
+fieldset {
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 16px 14px 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background: #FAFAFE;
+}
+
+legend {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary-purple);
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* دکمه‌های فرم استعلام و اصلی */
+.form-container button {
+  background: var(--mint-gradient);
+  color: var(--mint-text);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 0;
+  border-radius: 18px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-btn-mint);
+}
+
+.form-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0, 229, 163, 0.45);
+}
+
+/* دکمه ثبت جدید */
+.form-container button[type="button"][onclick*="showSecondForm"] {
+  background: var(--primary-purple);
+  color: #ffffff;
+  box-shadow: var(--shadow-btn-purple);
+}
+.form-container button[type="button"][onclick*="showSecondForm"]:hover {
+  background: var(--primary-dark);
+  box-shadow: 0 12px 26px rgba(90, 61, 224, 0.38);
+}
+
+/* دکمه انصراف */
+.form-container button[onclick*="menu.html"] {
+  background: transparent;
+  color: #7E70A6;
+  border: 1.5px solid var(--border-subtle);
+  box-shadow: none;
+}
+.form-container button[onclick*="menu.html"]:hover {
+  background: #F3F0FE;
+  color: var(--primary-purple);
+  border-color: var(--primary-purple);
+}
+
+/* دکمه یافتن شناسه */
+.btn-found-continue {
+  background: #EEFBF6 !important;
+  color: #00B37E !important;
+  border: 1.5px solid var(--accent-mint) !important;
+  box-shadow: none !important;
+  animation: pulseCont 2s infinite;
+}
+@keyframes pulseCont {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 229, 163, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(0, 229, 163, 0); }
+}
+
+/* چیدمان ۴ ستونه دکمه‌های CRUD */
+.button-group {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.button-group button {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 13.5px;
+  margin-bottom: 0;
+  border-radius: 16px;
+}
+
+.button-group button[name="save"] {
+  background: var(--mint-gradient);
+  color: var(--mint-text);
+  box-shadow: var(--shadow-btn-mint);
+}
+
+.button-group button[name="update"] {
+  background: var(--primary-purple);
+  color: #ffffff;
+  box-shadow: var(--shadow-btn-purple);
+}
+.button-group button[name="update"]:hover {
+  background: var(--primary-dark);
+}
+
+.button-group button[name="delete"] {
+  background: var(--danger-gradient);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(255, 83, 106, 0.3);
+}
+.button-group button[name="delete"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(255, 83, 106, 0.45);
+}
+
+.form-container .icon {
+  margin-left: 6px;
+  color: var(--primary-purple);
+}

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خدمات سامانه | Services</title>
+  <!-- Google Fonts: Vazirmatn & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Vazirmatn', 'Poppins', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #e9e4fc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    /* فریم اپلیکیشن دقیقا مشابه صفحه دوم عکس ارسالی */
+    .app-screen {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      min-height: 780px;
+      background: #F4F1FE;
+      border-radius: 42px;
+      box-shadow: 0 25px 60px rgba(78, 48, 214, 0.18), 0 0 0 10px #ffffff;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 30px 24px 34px;
+      color: #2D1F6B;
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* لکه‌های بزرگ بنفش ارگانیک پشت کارت‌ها دقیقا مشابه تصویر ارسالی */
+    .purple-blob {
+      position: absolute;
+      border-radius: 50%;
+      background: #5A3DE0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .blob-left {
+      width: 170px;
+      height: 170px;
+      left: -65px;
+      top: 310px;
+    }
+
+    .blob-right-mid {
+      width: 135px;
+      height: 135px;
+      right: -55px;
+      top: 250px;
+    }
+
+    .blob-right-bottom {
+      width: 190px;
+      height: 190px;
+      right: -50px;
+      bottom: -35px;
+    }
+
+    .blob-center-subtle {
+      width: 120px;
+      height: 120px;
+      left: 100px;
+      top: 420px;
+      opacity: 0.85;
+    }
+
+    /* نوار هدر بالای صفحه */
+    .app-header {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .header-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1px solid rgba(90, 61, 224, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #5A3DE0;
+      font-size: 16px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(90, 61, 224, 0.08);
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .header-btn:hover {
+      background: #5A3DE0;
+      color: #ffffff;
+      transform: scale(1.06);
+    }
+
+    .header-title-box {
+      text-align: center;
+    }
+
+    .header-title-box h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #382494;
+      line-height: 1.2;
+    }
+
+    .header-title-box p {
+      font-size: 11.5px;
+      color: #8C7BBD;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* گرید کارت‌های خدمات به شکل ۲ ستونه دقیقا مشابه عکس */
+    .services-grid {
+      position: relative;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 8px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      border-radius: 26px;
+      padding: 24px 14px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(90, 61, 224, 0.06), 0 2px 6px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(90, 61, 224, 0.07);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 38px rgba(90, 61, 224, 0.16);
+      border-color: rgba(90, 61, 224, 0.25);
+    }
+
+    .service-card:active {
+      transform: translateY(-2px);
+    }
+
+    /* قاب آیکون با خطوط فانتزی پزشکی مشابه عکس */
+    .card-icon-box {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      background: #FAFAFE;
+      border: 1.5px solid #EBE5FF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover .card-icon-box {
+      background: #F1EDFF;
+      border-color: #5A3DE0;
+      transform: scale(1.08);
+    }
+
+    .card-icon-box i {
+      font-size: 30px;
+      color: #5A3DE0;
+      transition: all 0.3s ease;
+    }
+
+    .card-icon-box.mint i {
+      color: #00BA88;
+    }
+    .service-card:hover .card-icon-box.mint {
+      border-color: #00BA88;
+      background: #E8FAF4;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #2D1F6B;
+      margin-bottom: 4px;
+      transition: color 0.25s ease;
+    }
+
+    .service-card:hover .card-title {
+      color: #5A3DE0;
+    }
+
+    .card-subtext {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: #9283BF;
+      letter-spacing: 0.3px;
+    }
+
+    /* نوار وضعیت پایین کارت‌ها */
+    .quick-status-bar {
+      position: relative;
+      z-index: 3;
+      margin-top: 26px;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 8px 20px rgba(90, 61, 224, 0.05);
+      border: 1px solid rgba(90, 61, 224, 0.08);
+    }
+
+    .quick-status-bar .db-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #00BA88;
+    }
+
+    .db-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #00BA88;
+      box-shadow: 0 0 0 3px rgba(0, 186, 136, 0.25);
+    }
+
+    .return-link {
+      font-size: 12px;
+      color: #5A3DE0;
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .return-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-screen">
+    
+    <!-- لکه‌های بنفش پس‌زمینه دقیقا مشابه طرح -->
+    <div class="purple-blob blob-left"></div>
+    <div class="purple-blob blob-right-mid"></div>
+    <div class="purple-blob blob-right-bottom"></div>
+    <div class="purple-blob blob-center-subtle"></div>
+
+    <!-- هدر اپلیکیشن -->
+    <header class="app-header">
+      <!-- دکمه بازگشت به صفحه خوش‌آمدگویی انیمیشنی -->
+      <a href="index.html" class="header-btn" title="صفحه ورود">
+        <i class="fas fa-chevron-right"></i>
+      </a>
+
+      <div class="header-title-box">
+        <h1>Services</h1>
+        <p>سامانه مدیریت و خدمات درمانی و سلامت</p>
+      </div>
+
+      <!-- دکمه منوی کشویی / اطلاعات -->
+      <a href="index.html" class="header-btn" title="منو">
+        <i class="fas fa-bars"></i>
+      </a>
+    </header>
+
+    <!-- گرید خدمات در قالب ۶ کارت استاندارد -->
+    <main class="services-grid">
+
+      <!-- ۱. ثبت اطلاعات افراد (Emergency Cross) -->
+      <a href="person.php" class="service-card">
+        <div class="card-icon-box">
+          <i class="fas fa-plus"></i>
+        </div>
+        <span class="card-title">اطلاعات افراد</span>
+        <span class="card-subtext">Emergency</span>
+      </a>
+
+      <!-- ۲. ثبت اطلاعات پزشک (Medical Kit / Doctor) -->
+      <a href="doctor.php" class="service-card">
+        <div class="card-icon-box mint">
+          <i class="fas fa-briefcase-medical"></i>
+        </div>
+        <span class="card-title">اطلاعات پزشک</span>
+        <span class="card-subtext">Find a Doctor</span>
+      </a>
+
+      <!-- ۳. ثبت اطلاعات بیمار (Heart Health Care) -->
+      <a href="patient.php" class="service-card">
+        <div class="card-icon-box">
+          <i class="fas fa-heart-pulse"></i>
+        </div>
+        <span class="card-title">اطلاعات بیمار</span>
+        <span class="card-subtext">Health Care</span>
+      </a>
+
+      <!-- ۴. ثبت اطلاعات داروها (Pills / Medicines) -->
+      <a href="medicine.php" class="service-card">
+        <div class="card-icon-box mint">
+          <i class="fas fa-capsules"></i>
+        </div>
+        <span class="card-title">اطلاعات داروها</span>
+        <span class="card-subtext">Medicines</span>
+      </a>
+
+      <!-- ۵. ثبت اطلاعات علائم (Checkup / Symptoms) -->
+      <a href="healthstatue.php" class="service-card">
+        <div class="card-icon-box">
+          <i class="fas fa-clipboard-check"></i>
+        </div>
+        <span class="card-title">ثبت علائم</span>
+        <span class="card-subtext">Checkup</span>
+      </a>
+
+      <!-- ۶. ثبت اطلاعات ویزیت (Syringe / Visits) -->
+      <a href="visit.php" class="service-card">
+        <div class="card-icon-box mint">
+          <i class="fas fa-syringe"></i>
+        </div>
+        <span class="card-title">اطلاعات ویزیت</span>
+        <span class="card-subtext">Visits</span>
+      </a>
+
+    </main>
+
+    <!-- فوتر سریع -->
+    <div class="quick-status-bar">
+      <div class="db-badge">
+        <div class="db-badge-dot"></div>
+        <span>سامانه آماده به کار</span>
+      </div>
+      <a href="index.html" class="return-link">
+        <i class="fas fa-arrow-right"></i>
+        صفحه معرفی
+      </a>
+    </div>
+
+  </div>
+
+</body>
+</html>
