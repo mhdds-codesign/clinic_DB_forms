@@ -363,3 +363,15 @@ legend {
   margin-left: 6px;
   color: var(--primary-purple);
 }
+
+@media (max-width: 500px) {
+
+.button-group button {
+  width: 100%;
+  padding: 9px;
+  font-size: 10px;
+  margin-bottom: 0;
+  border-radius: 16px;
+}
+
+}
