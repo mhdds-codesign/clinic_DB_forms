@@ -1,10 +1,11 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "health_check";
+$servername = getenv('DB_HOST') ?: 'mysql-clinic-db-mhdds-e2c8.h.aivencloud.com';
+$username = getenv('DB_USER') ?: 'avnadmin';
+$password = getenv('DB_PASS') ?: (file_exists(__DIR__ . '/secret_key.php') ? include(__DIR__ . '/secret_key.php') : '');
+$dbname = getenv('DB_NAME') ?: 'defaultdb';
+$port = 28675;
 
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+$conn = mysqli_connect($servername, $username, $password, $dbname, $port);
  
 $showButton = false; 
 
