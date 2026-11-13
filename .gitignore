@@ -1,4 +1,13 @@
-/gradient.svg
-/pic.jpg
-.vscode/extensions.json
+# کلیدها و فایل‌های حساس دیتابیس
 secret_key.php
+main/secret_key.php
+**/secret_key.php
+
+# تنظیمات ادیتور
+.vscode/
+.idea/
+
+# فایل‌های موقت
+*.log
+.DS_Store
+Thumbs.db

@@ -1,4 +1,12 @@
 .git
+.github
 .vscode
+screenshots/
+*.png
+*.jpg
+*.jpeg
+*.sql
+*.md
 *.bat
-README.md
+main/secret_key.php
+secret_key.php
